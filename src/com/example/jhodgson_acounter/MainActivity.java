@@ -25,9 +25,10 @@ public class MainActivity extends Activity {
         adapter = new ArrayAdapter<String>(getApplicationContext(), android.R.layout.simple_list_item_1, strings);
         countersListView.setAdapter(adapter);
         
-        strings.add("test");
+        for(int i=0; i<50; i++){
+        	strings.add("test" + i);
+        }
     }
-
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
