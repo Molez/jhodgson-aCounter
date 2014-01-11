@@ -17,8 +17,8 @@ import android.widget.ListView;
 public class MainActivity extends Activity {
 	
 	public final static String EXTRA_MESSAGE = "com.example.jhodgson-acounter.MESSAGE";
-	private ArrayList<String> strings = new ArrayList<String>();
-	private ArrayAdapter<String> adapter;
+	private ArrayList<counter> counters = new ArrayList<counter>();
+	private ArrayAdapter<counter> adapter;
 	private ListView countersListView;
 	private Button button;
 	private EditText counterName;
@@ -33,14 +33,14 @@ public class MainActivity extends Activity {
         counterName = (EditText) findViewById(R.id.counter_Name);
         
         //Setting up the counters list
-        adapter = new ArrayAdapter<String>(getApplicationContext(), android.R.layout.simple_list_item_1, strings);
+        adapter = new ArrayAdapter<counter>(getApplicationContext(), android.R.layout.simple_list_item_1, counters);
         countersListView.setAdapter(adapter);
         button.setOnClickListener(new OnClickListener() {
         	
         	//On Click functionality
         	@Override
         	public void onClick(View arg0){
-        		strings.add(counterName.getText().toString());
+        		counters.add(new counter(counterName.getText().toString()));
         		counterName.setText(""); //Clear the text after use
         		adapter.notifyDataSetChanged();
         	}
