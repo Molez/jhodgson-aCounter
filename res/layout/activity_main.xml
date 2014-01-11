@@ -7,34 +7,39 @@
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context=".MainActivity" >
-
+    
+    <LinearLayout
+    	android:id="@+id/new_layout"
+    	android:layout_width="match_parent"
+    	android:layout_height="wrap_content"
+    	android:orientation="horizontal">
+    
+   	<EditText android:id="@+id/edit_message"
+        android:layout_weight="1"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:hint="@string/edit_message" />
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/new_counter" />
+        
+   	</LinearLayout>
+   			
    	<Button
-   		android:id="@+id/edit"
-   		android:layout_width="match_parent"
-   		android:layout_height="wrap_content"
-   		android:text="@string/edit"
-   		android:layout_alignParentBottom="true" />
-   		
-   	   <Button
    		android:id="@+id/stats"
    		android:layout_width="match_parent"
    		android:layout_height="wrap_content"
    		android:text="@string/stats"
-   		android:layout_above="@id/edit" />
-   		
-    <Button
-    	android:id="@+id/new_counter"
-   		android:layout_width="match_parent"
-   		android:layout_height="wrap_content"
-   		android:text="@string/new_counter"
-   		android:layout_above="@id/stats" />
-   		
-     <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+   		android:layout_alignParentBottom="true" />
+
+     <RelativeLayout
    		android:layout_width="fill_parent"
    		android:layout_height="fill_parent"
-   		android:layout_above="@id/new_counter"
-   		android:background="@color/red" >
+   		android:layout_above="@id/stats"
+   		android:layout_below="@id/new_layout" >
+   		
+   		
    	</RelativeLayout>
-
 
 </RelativeLayout>
