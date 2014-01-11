@@ -11,6 +11,7 @@ public final class R {
     public static final class attr {
     }
     public static final class color {
+        public static final int black=0x7f040003;
         public static final int light_grey=0x7f040001;
         public static final int med_grey=0x7f040002;
         public static final int red=0x7f040000;
@@ -29,8 +30,9 @@ public final class R {
         public static final int ic_launcher=0x7f020000;
     }
     public static final class id {
-        public static final int action_settings=0x7f090003;
+        public static final int action_settings=0x7f090004;
         public static final int edit_message=0x7f090001;
+        public static final int listView1=0x7f090003;
         public static final int new_layout=0x7f090000;
         public static final int stats=0x7f090002;
     }

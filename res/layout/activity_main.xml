@@ -14,15 +14,16 @@
     	android:layout_height="wrap_content"
     	android:orientation="horizontal">
     
-   	<EditText android:id="@+id/edit_message"
-        android:layout_weight="1"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:hint="@string/edit_message" />
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/new_counter" />
+   		<EditText android:id="@+id/edit_message"
+        	android:layout_weight="1"
+        	android:layout_width="0dp"
+        	android:layout_height="wrap_content"
+        	android:hint="@string/edit_message" />
+    	<Button
+        	android:layout_width="wrap_content"
+        	android:layout_height="wrap_content"
+        	android:text="@string/new_counter"
+        	android:onClick="newCounter" />
         
    	</LinearLayout>
    			
@@ -38,7 +39,14 @@
    		android:layout_height="fill_parent"
    		android:layout_above="@id/stats"
    		android:layout_below="@id/new_layout" >
-   		
+
+         <ListView
+             android:id="@+id/listView1"
+             android:layout_width="match_parent"
+             android:layout_height="wrap_content"
+             android:layout_alignParentLeft="true"
+             android:layout_alignParentTop="true">
+         </ListView>
    		
    	</RelativeLayout>
 
