@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">jhodgson-aCounter</string>
+    <string name="action_settings">Settings</string>
+    <string name="new_counter">New</string>
+    <string name="stats">Stats</string>
+    <string name="edit">Edit</string>
+
+</resources>
