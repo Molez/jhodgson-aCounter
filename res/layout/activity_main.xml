@@ -14,16 +14,16 @@
     	android:layout_height="wrap_content"
     	android:orientation="horizontal">
     
-   		<EditText android:id="@+id/edit_message"
+   		<EditText android:id="@+id/counter_Name"
         	android:layout_weight="1"
         	android:layout_width="0dp"
         	android:layout_height="wrap_content"
-        	android:hint="@string/edit_message" />
+        	android:hint="@string/counter_text" />
     	<Button
+    		android:id="@+id/new_counter"
         	android:layout_width="wrap_content"
         	android:layout_height="wrap_content"
-        	android:text="@string/new_counter"
-        	android:onClick="newCounter" />
+        	android:text="@string/new_counter" />
         
    	</LinearLayout>
    			

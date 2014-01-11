@@ -6,6 +6,6 @@
     <string name="new_counter">New</string>
     <string name="stats">Stats</string>
     <string name="edit">Edit</string>
-    <string name="edit_message">Counter Name</string>
+    <string name="counter_text">Counter Name</string>
 
 </resources>
