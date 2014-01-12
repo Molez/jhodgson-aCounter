@@ -15,6 +15,7 @@ public final class R {
         public static final int light_grey=0x7f040001;
         public static final int med_grey=0x7f040002;
         public static final int red=0x7f040000;
+        public static final int yellow=0x7f040004;
     }
     public static final class dimen {
         /**  Default screen margins, per the Android Design guidelines. 
@@ -30,8 +31,11 @@ public final class R {
         public static final int ic_launcher=0x7f020000;
     }
     public static final class id {
-        public static final int action_settings=0x7f090005;
+        public static final int action_settings=0x7f090008;
+        public static final int back_main=0x7f090007;
         public static final int counter_Name=0x7f090001;
+        public static final int counter_name=0x7f090005;
+        public static final int counter_number=0x7f090006;
         public static final int listView1=0x7f090004;
         public static final int new_counter=0x7f090002;
         public static final int new_layout=0x7f090000;
@@ -39,6 +43,7 @@ public final class R {
     }
     public static final class layout {
         public static final int activity_main=0x7f030000;
+        public static final int counter=0x7f030001;
     }
     public static final class menu {
         public static final int main=0x7f080000;
@@ -46,8 +51,12 @@ public final class R {
     public static final class string {
         public static final int action_settings=0x7f060001;
         public static final int app_name=0x7f060000;
+        public static final int back_main=0x7f060007;
+        public static final int counter_default=0x7f060006;
+        public static final int counter_number=0x7f060008;
         public static final int counter_text=0x7f060005;
         public static final int edit=0x7f060004;
+        public static final int increment=0x7f060009;
         public static final int new_counter=0x7f060002;
         public static final int stats=0x7f060003;
     }

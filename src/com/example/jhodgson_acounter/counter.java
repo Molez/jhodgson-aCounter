@@ -18,4 +18,8 @@ public class counter {
 	public String toString(){
 		return this.name;
 	}
+	
+	public void incrementCounter(){
+		count++;
+	}
 }

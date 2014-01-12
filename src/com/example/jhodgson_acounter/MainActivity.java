@@ -7,10 +7,13 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.View;
 import android.view.View.OnClickListener;
+import android.widget.AdapterView;
+import android.widget.AdapterView.OnItemClickListener;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ListView;
+import android.widget.TextView;
 
 //author Java Experience; https://www.youtube.com/watch?v=tNoeFkXCZ6w
 //The list functionality was adapted from Java Experience
@@ -35,6 +38,8 @@ public class MainActivity extends Activity {
         //Setting up the counters list
         adapter = new ArrayAdapter<counter>(getApplicationContext(), android.R.layout.simple_list_item_1, counters);
         countersListView.setAdapter(adapter);
+        
+        //"New" button functionality
         button.setOnClickListener(new OnClickListener() {
         	
         	//On Click functionality
@@ -45,6 +50,18 @@ public class MainActivity extends Activity {
         		adapter.notifyDataSetChanged();
         	}
         }); 
+        
+        //List functionality
+        countersListView.setOnItemClickListener(new OnItemClickListener() {
+        	
+        	@Override
+        	public void onItemClick(AdapterView<?> parent, final View view, int position, long id){
+        		
+        		setContentView(R.layout.counter);
+        		TextView counterName = (TextView) findViewById(R.id.counter_name);
+        		counterName.setText(counters.get(position).toString());
+        	}
+		});
         
     }
 
