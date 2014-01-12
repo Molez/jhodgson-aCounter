@@ -1,7 +1,5 @@
 package com.example.jhodgson_acounter;
 
-import java.util.ArrayList;
-
 import android.app.Activity;
 import android.os.Bundle;
 import android.view.Menu;
@@ -15,42 +13,43 @@ import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.TextView;
 
-//author Java Experience; https://www.youtube.com/watch?v=tNoeFkXCZ6w
-//The list functionality was adapted from Java Experience
 public class MainActivity extends Activity {
 	
-	public final static String EXTRA_MESSAGE = "com.example.jhodgson-acounter.MESSAGE";
-	private ArrayList<counter> counters = new ArrayList<counter>();
 	private ArrayAdapter<counter> adapter;
-	private ListView countersListView;
-	private Button button;
-	private EditText counterName;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        
         setContentView(R.layout.activity_main);
         
-        countersListView = (ListView) findViewById(R.id.listView1);
-        button = (Button) findViewById(R.id.new_counter);
-        counterName = (EditText) findViewById(R.id.counter_Name);
+        ListView countersListView = (ListView) findViewById(R.id.listView1);
         
         //Setting up the counters list
-        adapter = new ArrayAdapter<counter>(getApplicationContext(), android.R.layout.simple_list_item_1, counters);
+        adapter = new ArrayAdapter<counter>(getApplicationContext(), android.R.layout.simple_list_item_1, counter.getArray());
         countersListView.setAdapter(adapter);
         
+        //----------------------------------------------------------------------------------------------------------------------
         //"New" button functionality
-        button.setOnClickListener(new OnClickListener() {
+        Button newButton = (Button) findViewById(R.id.new_counter);;
+        newButton.setOnClickListener(new OnClickListener() {
         	
-        	//On Click functionality
         	@Override
         	public void onClick(View arg0){
-        		counters.add(new counter(counterName.getText().toString()));
+        		
+        		EditText counterName = (EditText) findViewById(R.id.counter_Name);
+        		
+        		counter.addNewCounter(counterName.getText().toString());
         		counterName.setText(""); //Clear the text after use
         		adapter.notifyDataSetChanged();
         	}
         }); 
+        //----------------------------------------------------------------------------------------------------------------------
         
+        //----------------------------------------------------------------------------------------------------------------------
+        //author Java Experience; https://www.youtube.com/watch?v=tNoeFkXCZ6w
+        //The list functionality was adapted from Java Experience
+        //----------------------------------------------------------------------------------------------------------------------
         //List functionality
         countersListView.setOnItemClickListener(new OnItemClickListener() {
         	
@@ -59,10 +58,10 @@ public class MainActivity extends Activity {
         		
         		setContentView(R.layout.counter);
         		TextView counterName = (TextView) findViewById(R.id.counter_name);
-        		counterName.setText(counters.get(position).toString());
+        		counterName.setText(counter.getName(position));
         	}
 		});
-        
+        //---------------------------------------------------------------------------------------------------------------------- 
     }
 
     @Override
