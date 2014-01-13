@@ -1,6 +1,7 @@
 package com.example.jhodgson_acounter;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.View;
@@ -31,7 +32,7 @@ public class MainActivity extends Activity {
         
         //----------------------------------------------------------------------------------------------------------------------
         //"New" button functionality
-        Button newButton = (Button) findViewById(R.id.new_counter);;
+        Button newButton = (Button) findViewById(R.id.new_counter);
         newButton.setOnClickListener(new OnClickListener() {
         	
         	@Override
@@ -56,9 +57,9 @@ public class MainActivity extends Activity {
         	@Override
         	public void onItemClick(AdapterView<?> parent, final View view, int position, long id){
         		
-        		setContentView(R.layout.counter);
-        		TextView counterName = (TextView) findViewById(R.id.counter_name);
-        		counterName.setText(counter.getName(position));
+        		Intent intent = new Intent(MainActivity.this, CounterActivity.class);
+        		intent.putExtra("Index", position);
+        		startActivity(intent);
         	}
 		});
         //---------------------------------------------------------------------------------------------------------------------- 

@@ -11,5 +11,7 @@
     <string name="back_main">Back</string>
     <string name="counter_number">0</string>
     <string name="increment">+</string>
+    <string name="title_activity_counter">CounterActivity</string>
+    <string name="hello_world">Hello world!</string>
 
 </resources>
