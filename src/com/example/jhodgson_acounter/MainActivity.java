@@ -12,7 +12,6 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ListView;
-import android.widget.TextView;
 
 public class MainActivity extends Activity {
 	
@@ -39,10 +38,14 @@ public class MainActivity extends Activity {
         	public void onClick(View arg0){
         		
         		EditText counterName = (EditText) findViewById(R.id.counter_Name);
+        		String name = counterName.getText().toString();
         		
-        		counter.addNewCounter(counterName.getText().toString());
-        		counterName.setText(""); //Clear the text after use
-        		adapter.notifyDataSetChanged();
+        		//Make sure name is not empty
+        		if(!name.isEmpty() && name != null){
+        			counter.addNewCounter(name);
+        			counterName.setText(""); //Clear the text after use
+        			adapter.notifyDataSetChanged();
+        		}
         	}
         }); 
         //----------------------------------------------------------------------------------------------------------------------
