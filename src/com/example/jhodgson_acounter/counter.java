@@ -5,6 +5,7 @@ All counter objects are create and stored in a private array which only allows
 access through private static functions.*/
 
 import java.util.ArrayList;
+import java.util.Calendar;
 
 public class counter {
 	//Holds all the counters
@@ -14,18 +15,21 @@ public class counter {
 	//------Local Counter Variables---------
 	private String name;
 	private int count;
+	private ArrayList<Calendar> countTimes;
 	
 	//------Counter Functions---------
 	public counter(){
 		this.name = "No name";
 		this.count = 0;
 		currentCounter = null;
+		countTimes = new ArrayList<Calendar>();
 	}
 	
 	public counter(String users_name){
 		this.name = users_name;
 		this.count = 0;
 		currentCounter = null;
+		countTimes = new ArrayList<Calendar>();
 	}
 	
 	private int count(){
@@ -38,7 +42,13 @@ public class counter {
 	}
 	
 	private void increment(){
-		count++;
+		this.count++;
+		this.countTimes.add(Calendar.getInstance());
+	}
+	
+	private void reset(){
+		this.count = 0;
+		this.countTimes.clear();
 	}
 	
 	
@@ -46,6 +56,9 @@ public class counter {
 	
 	//Return the array
 	//For the purpose of creating an adapter on top of this array.
+	
+	//**TO DO**
+	//Consider creating the adapter and passing it back instead of exposing the array
 	public static ArrayList<counter> getArray(){
 		return counters;
 	}
@@ -80,7 +93,7 @@ public class counter {
 		currentCounter = null;
 	}
 	
-	//Returns status of editable counter
+	//Returns existance of editable counter
 	public static Boolean hasEditableCounter(){
 		if(currentCounter == null){
 			return false;
@@ -88,5 +101,9 @@ public class counter {
 		else{
 			return true;
 		}
+	}
+	
+	public static void resetCounter(){
+		currentCounter.reset();
 	}
 }

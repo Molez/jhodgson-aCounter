@@ -41,6 +41,20 @@ public class CounterActivity extends Activity {
         }); 
 		
 		//----------------------------------------------------------------------------------------------------------------------
+        //Reset functionality
+		Button reset = (Button) findViewById(R.id.reset);
+		reset.setOnClickListener(new OnClickListener() {
+        	
+        	@Override
+        	public void onClick(View arg0){
+        		//Clear the current editable counter
+        		counter.resetCounter();
+        		TextView count = (TextView) findViewById(R.id.counter_number);
+        		count.setText(String.valueOf(counter.getCurrentCount()));
+        	}
+        }); 
+		
+		//----------------------------------------------------------------------------------------------------------------------
         //Back functionality
 		Button backButton = (Button) findViewById(R.id.back_main);
 		backButton.setOnClickListener(new OnClickListener() {

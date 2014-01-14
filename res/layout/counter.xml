@@ -28,8 +28,22 @@
         	android:layout_height="match_parent"
         	android:text="@string/increment"
         	android:layout_below="@id/counter_number"
-        	android:layout_above="@+id/back_main"
+        	android:layout_above="@+id/reset"
         	 android:textSize="200dp" />
+    
+    <Button
+    		android:id="@id/reset"
+        	android:layout_width="match_parent"
+        	android:layout_height="wrap_content"
+        	android:text="@string/reset"
+        	android:layout_above="@+id/individual_stats" />
+        	
+     <Button
+    		android:id="@id/individual_stats"
+        	android:layout_width="match_parent"
+        	android:layout_height="wrap_content"
+        	android:text="@string/stats"
+        	android:layout_above="@+id/back_main" />
         
     <Button
     		android:id="@id/back_main"
