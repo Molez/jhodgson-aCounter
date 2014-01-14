@@ -26,6 +26,14 @@
         	android:text="@string/new_counter" />
         
    	</LinearLayout>
+   	
+   	<Spinner
+    	android:id="@+id/sort_spinner"
+    	android:layout_width="match_parent"
+    	android:layout_height="wrap_content"
+    	android:layout_below="@id/new_layout"
+    	android:prompt="@string/sort_prompt">
+    </Spinner>
    			
    	<Button
    		android:id="@+id/stats"
@@ -38,7 +46,7 @@
    		android:layout_width="fill_parent"
    		android:layout_height="fill_parent"
    		android:layout_above="@id/stats"
-   		android:layout_below="@id/new_layout" >
+   		android:layout_below="@id/sort_spinner" >
 
          <ListView
              android:id="@+id/listView1"

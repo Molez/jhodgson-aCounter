@@ -12,23 +12,18 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ListView;
+import android.widget.Spinner;
 
 public class MainActivity extends Activity {
 	
-	private ArrayAdapter<counter> adapter;
+	private customeAdapter adapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         
         setContentView(R.layout.activity_main);
-        
-        ListView countersListView = (ListView) findViewById(R.id.listView1);
-        
-        //Setting up the counters list
-        adapter = new ArrayAdapter<counter>(getApplicationContext(), android.R.layout.simple_list_item_1, counter.getArray());
-        countersListView.setAdapter(adapter);
-        
+             
         //----------------------------------------------------------------------------------------------------------------------
         //"New" button functionality
         Button newButton = (Button) findViewById(R.id.new_counter);
@@ -48,13 +43,28 @@ public class MainActivity extends Activity {
         		}
         	}
         }); 
+        
         //----------------------------------------------------------------------------------------------------------------------
+        //Spinner functionality (Sort Options)
+        
+        Spinner spinner = (Spinner) findViewById(R.id.sort_spinner);
+        ArrayAdapter<CharSequence> sortAdapter = ArrayAdapter.createFromResource(this, R.array.sort_array, android.R.layout.simple_spinner_item);
+        
+        sortAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        spinner.setAdapter(sortAdapter);
         
         //----------------------------------------------------------------------------------------------------------------------
         //author Java Experience; https://www.youtube.com/watch?v=tNoeFkXCZ6w
         //The list functionality was adapted from Java Experience
         //----------------------------------------------------------------------------------------------------------------------
         //List functionality
+        
+        ListView countersListView = (ListView) findViewById(R.id.listView1);
+        
+        //Setting up the counters list
+        adapter = new customeAdapter(getApplicationContext(), R.layout.list, counter.getArray());
+        countersListView.setAdapter(adapter);
+        
         countersListView.setOnItemClickListener(new OnItemClickListener() {
         	
         	@Override

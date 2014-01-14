@@ -35,6 +35,10 @@ public class counter {
 	private int count(){
 		return this.count;
 	}
+	
+	public String getCount(){
+		return Integer.toString(this.count);
+	}
 
 	@Override
 	public String toString(){

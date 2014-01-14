@@ -13,5 +13,13 @@
     <string name="increment">+</string>
     <string name="title_activity_counter">CounterActivity</string>
     <string name="reset">Reset</string>
+    
+    <string-array name="sort_array">
+        <item>Highest to Lowest</item>
+        <item>Lowest to Highest</item>
+        <item>Alphabetical</item>
+    </string-array>
+    
+    <string name="sort_prompt">Sort</string>
 
 </resources>
