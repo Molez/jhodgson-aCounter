@@ -1,57 +1,56 @@
 package com.example.jhodgson_acounter;
 
-/*This class implements both the counter objects and the counter object management.
-All counter objects are create and stored in a private array which only allows 
-access through private static functions.*/
+/*This class implements  the counter object*/
 
 import java.util.ArrayList;
 import java.util.Calendar;
 
-public class CounterModel implements Comparable<CounterModel>{
-	
-	//------Local Counter Variables---------
+public class CounterModel implements Comparable<CounterModel> {
+
+	// ------Local Counter Variables---------
 	private String name;
 	private int count;
 	private ArrayList<Calendar> countTimes;
-	
-	//------Counter Functions---------
-	public CounterModel(){
+
+	// ------Counter Functions---------
+	public CounterModel() {
 		this.name = "No name";
 		this.count = 0;
 		countTimes = new ArrayList<Calendar>();
 	}
-	
-	public CounterModel(String users_name){
+
+	public CounterModel(String users_name) {
 		this.name = users_name;
 		this.count = 0;
 		countTimes = new ArrayList<Calendar>();
 	}
-	
-	public int getCount(){
+
+	public int getCount() {
 		return this.count;
 	}
-	
-	public String getCountString(){
+
+	public String getCountString() {
 		return Integer.toString(this.count);
 	}
-	
+
 	@Override
-	public String toString(){
+	public String toString() {
 		return this.name;
 	}
-	
-	public void increment(){
+
+	public void increment() {
 		this.count++;
 		this.countTimes.add(Calendar.getInstance());
 	}
-	
-	public void reset(){
+
+	public void reset() {
 		this.count = 0;
 		this.countTimes.clear();
 	}
-	
+
 	@Override
 	public int compareTo(CounterModel second) {
-		return this.count < second.getCount() ? 1 : (this.count > second.getCount() ? -1 : 0);
+		return this.count < second.getCount() ? 1 : (this.count > second
+				.getCount() ? -1 : 0);
 	}
 }

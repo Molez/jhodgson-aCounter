@@ -5,8 +5,8 @@ import java.util.ArrayList;
 public class CounterListModel {
 
 	private ArrayList<CounterModel> list;
-	
-	public CounterListModel(){
+
+	public CounterListModel() {
 		super();
 		list = new ArrayList<CounterModel>();
 	}
