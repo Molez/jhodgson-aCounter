@@ -52,5 +52,5 @@ public class CounterModel implements Comparable<CounterModel> {
 	public int compareTo(CounterModel second) {
 		return this.count < second.getCount() ? 1 : (this.count > second
 				.getCount() ? -1 : 0);
-	}
+	}	
 }

@@ -60,5 +60,8 @@ public class CounterListController {
 	public void sortCounters() {
 		Collections.sort(counterListModel.getList());
 	}
-
+	
+	public void sortCountersReverse() {
+		Collections.sort(counterListModel.getList(),Collections.reverseOrder());
+	}
 }

@@ -64,8 +64,11 @@ public class MainActivity extends Activity {
 			@Override
 			public void onItemSelected(AdapterView<?> parentView,
 					View selectedItemView, int position, long id) {
-				// your code here
-				listController.sortCounters();
+
+				if(position == 0)
+					listController.sortCounters();
+				else
+					listController.sortCountersReverse();
 				adapter.notifyDataSetChanged();
 			}
 
