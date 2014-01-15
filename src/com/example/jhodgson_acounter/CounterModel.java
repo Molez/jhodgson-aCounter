@@ -53,4 +53,8 @@ public class CounterModel implements Comparable<CounterModel> {
 		return this.count < second.getCount() ? 1 : (this.count > second
 				.getCount() ? -1 : 0);
 	}	
+	
+	public void setName(String name){
+		this.name = name;
+	}
 }

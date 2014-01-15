@@ -55,8 +55,7 @@ public class MainActivity extends Activity {
 				.createFromResource(this, R.array.sort_array,
 						android.R.layout.simple_spinner_item);
 
-		sortAdapter
-				.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+		sortAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
 		spinner.setAdapter(sortAdapter);
 
 		spinner.setOnItemSelectedListener(new OnItemSelectedListener() {

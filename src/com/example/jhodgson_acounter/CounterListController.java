@@ -56,6 +56,11 @@ public class CounterListController {
 	public void resetCounter() {
 		currentCounter.reset();
 	}
+	
+	public void deleteCurrentCounter(){
+		counterListModel.getList().remove(currentCounter);
+		currentCounter = null;
+	}
 
 	public void sortCounters() {
 		Collections.sort(counterListModel.getList());
@@ -63,5 +68,9 @@ public class CounterListController {
 	
 	public void sortCountersReverse() {
 		Collections.sort(counterListModel.getList(),Collections.reverseOrder());
+	}
+	
+	public void renameCurrentCounter(String name){
+		currentCounter.setName(name);
 	}
 }

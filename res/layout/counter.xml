@@ -31,22 +31,53 @@
         	android:layout_height="match_parent"
         	android:text="@string/increment"
         	android:layout_below="@id/counter_number"
-        	android:layout_above="@+id/reset"
-        	 android:textSize="200dp" />
+        	android:layout_above="@+id/layout_one"
+        	android:textSize="200dp" />
+        	 
+   	<LinearLayout
+    	android:id="@id/layout_one"
+    	android:layout_width="match_parent"
+    	android:layout_height="wrap_content"
+    	android:orientation="horizontal"
+    	android:layout_above="@+id/layout_two">
     
-    <Button
-    		android:id="@id/reset"
-        	android:layout_width="match_parent"
+   		<Button
+    		android:id="@+id/reset"
+        	android:layout_width="0dp"
         	android:layout_height="wrap_content"
         	android:text="@string/reset"
-        	android:layout_above="@+id/individual_stats" />
+        	android:layout_weight="1"/>
         	
      <Button
-    		android:id="@id/individual_stats"
-        	android:layout_width="match_parent"
+    		android:id="@+id/individual_stats"
+        	android:layout_width="0dp"
         	android:layout_height="wrap_content"
         	android:text="@string/stats"
-        	android:layout_above="@+id/back_main" />
+        	android:layout_weight="1"/> 
+    </LinearLayout>
+     	    	 
+   	<LinearLayout
+    	android:id="@id/layout_two"
+    	android:layout_width="match_parent"
+    	android:layout_height="wrap_content"
+    	android:orientation="horizontal"
+    	android:layout_above="@+id/back_main">
+        	
+     <Button
+    		android:id="@+id/rename"
+        	android:layout_width="0dp"
+        	android:layout_height="wrap_content"
+        	android:text="@string/rename"
+        	android:layout_weight="1"/>
+        	
+     <Button
+    		android:id="@+id/delete"
+        	android:layout_width="0dp"
+        	android:layout_height="wrap_content"
+        	android:text="@string/delete"
+        	android:layout_weight="1"/> 
+   	</LinearLayout>
+   	
         
     <Button
     		android:id="@id/back_main"
