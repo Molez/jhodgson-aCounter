@@ -9,18 +9,18 @@ import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.TextView;
 
-public class customeAdapter extends ArrayAdapter<counter>{
+public class CustomeListAdaper extends ArrayAdapter<CounterModel>{
 	
-	public customeAdapter(Context context, int textViewResourceId) {
+	public CustomeListAdaper(Context context, int textViewResourceId) {
 	    super(context, textViewResourceId);
 	    // TODO Auto-generated constructor stub
 	}
 
-	private List<counter> items;
+	private List<CounterModel> items;
 	private Context context;
 	private int resource;
 
-	public customeAdapter(Context context, int resource, List<counter> items) {
+	public CustomeListAdaper(Context context, int resource, List<CounterModel> items) {
 
 	    super(context, resource, items);
 
@@ -38,7 +38,7 @@ public class customeAdapter extends ArrayAdapter<counter>{
 	    TextView count = (TextView) rowView.findViewById(R.id.list_count);
 	    
 	    name.setText(items.get(position).toString());
-	    count.setText(items.get(position).getCount());
+	    count.setText(items.get(position).getCountString());
 	    return rowView;
 	  }
 

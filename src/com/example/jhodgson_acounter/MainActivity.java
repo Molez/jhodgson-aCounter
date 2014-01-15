@@ -8,6 +8,7 @@ import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
+import android.widget.AdapterView.OnItemSelectedListener;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
@@ -16,13 +17,15 @@ import android.widget.Spinner;
 
 public class MainActivity extends Activity {
 	
-	private customeAdapter adapter;
+	private CustomeListAdaper adapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         
         setContentView(R.layout.activity_main);
+        
+        final CounterListController listController = new CounterListController();
              
         //----------------------------------------------------------------------------------------------------------------------
         //"New" button functionality
@@ -37,7 +40,7 @@ public class MainActivity extends Activity {
         		
         		//Make sure name is not empty
         		if(!name.isEmpty() && name != null){
-        			counter.addNewCounter(name);
+        			listController.addCounter(name);
         			counterName.setText(""); //Clear the text after use
         			adapter.notifyDataSetChanged();
         		}
@@ -53,6 +56,23 @@ public class MainActivity extends Activity {
         sortAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         spinner.setAdapter(sortAdapter);
         
+        spinner.setOnItemSelectedListener(new OnItemSelectedListener(){
+        	
+        	@Override
+            public void onItemSelected(AdapterView<?> parentView, View selectedItemView, int position, long id) {
+                // your code here
+        		listController.sortCounters();
+        		adapter.notifyDataSetChanged();
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parentView) {
+                // your code here
+            }
+        	
+        	
+        });
+        
         //----------------------------------------------------------------------------------------------------------------------
         //author Java Experience; https://www.youtube.com/watch?v=tNoeFkXCZ6w
         //The list functionality was adapted from Java Experience
@@ -62,7 +82,7 @@ public class MainActivity extends Activity {
         ListView countersListView = (ListView) findViewById(R.id.listView1);
         
         //Setting up the counters list
-        adapter = new customeAdapter(getApplicationContext(), R.layout.list, counter.getArray());
+        adapter = new CustomeListAdaper(getApplicationContext(), R.layout.list, listController.getList());
         countersListView.setAdapter(adapter);
         
         countersListView.setOnItemClickListener(new OnItemClickListener() {

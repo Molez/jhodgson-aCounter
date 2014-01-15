@@ -15,17 +15,19 @@ public class CounterActivity extends Activity {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.counter);
 		
+		final CounterListController listController = new CounterListController();
+		
 		//Get the extra intent data
 		Intent intent = getIntent();
 		int position = intent.getIntExtra("Index", 0);
-		counter.setCurrentCounter(position);
+		listController.setCurrentCounter(position);
 		
 		//Set the name text
 		TextView counterName = (TextView) findViewById(R.id.counter_name);
-		counterName.setText(counter.getName());
+		counterName.setText(listController.getCurrentName());
 		
 		TextView counterCount = (TextView) findViewById(R.id.counter_number);
-		counterCount.setText(String.valueOf(counter.getCurrentCount()));
+		counterCount.setText(String.valueOf(listController.getCurrentCount()));
 		
 		//----------------------------------------------------------------------------------------------------------------------
         //Increment functionality
@@ -34,9 +36,9 @@ public class CounterActivity extends Activity {
         	
         	@Override
         	public void onClick(View arg0){
-        		counter.incrementCounter();
+        		listController.incrementCounter();
         		TextView count = (TextView) findViewById(R.id.counter_number);
-        		count.setText(String.valueOf(counter.getCurrentCount()));
+        		count.setText(String.valueOf(listController.getCurrentCount()));
         	}
         }); 
 		
@@ -48,9 +50,9 @@ public class CounterActivity extends Activity {
         	@Override
         	public void onClick(View arg0){
         		//Clear the current editable counter
-        		counter.resetCounter();
+        		listController.resetCounter();
         		TextView count = (TextView) findViewById(R.id.counter_number);
-        		count.setText(String.valueOf(counter.getCurrentCount()));
+        		count.setText(String.valueOf(listController.getCurrentCount()));
         	}
         }); 
 		
@@ -62,7 +64,7 @@ public class CounterActivity extends Activity {
         	@Override
         	public void onClick(View arg0){
         		//Clear the current editable counter
-        		counter.clearCurrentCounter();
+        		listController.clearCurrentCounter();
         		Intent intent = new Intent(CounterActivity.this, MainActivity.class);
         		startActivity(intent);
         	}
