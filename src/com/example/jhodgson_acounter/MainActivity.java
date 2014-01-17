@@ -68,6 +68,7 @@ public class MainActivity extends Activity {
 					listController.sortCounters();
 				else
 					listController.sortCountersReverse();
+				
 				adapter.notifyDataSetChanged();
 			}
 
@@ -96,10 +97,11 @@ public class MainActivity extends Activity {
 			@Override
 			public void onItemClick(AdapterView<?> parent, final View view,
 					int position, long id) {
+				
+				listController.setCurrentCounter(position);
 
 				Intent intent = new Intent(MainActivity.this,
 						CounterActivity.class);
-				intent.putExtra("Index", position);
 				startActivity(intent);
 			}
 		});

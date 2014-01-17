@@ -17,11 +17,6 @@ public class CounterActivity extends Activity {
 
 		final CounterListController listController = new CounterListController();
 
-		// Get the extra intent data
-		Intent intent = getIntent();
-		int position = intent.getIntExtra("Index", 0);
-		listController.setCurrentCounter(position);
-
 		// Set the name text
 		TextView counterName = (TextView) findViewById(R.id.counter_name);
 		counterName.setText(listController.getCurrentName());
@@ -49,13 +44,13 @@ public class CounterActivity extends Activity {
 
 			@Override
 			public void onClick(View arg0) {
-				Bundle b = new Bundle();
-				b.putInt("button1", R.string.cancel);
-				b.putInt("button2", R.string.ok);
-				b.putInt("layout", R.layout.verify);
+				Bundle bundle = new Bundle();
+				bundle.putInt("button1", R.string.cancel);
+				bundle.putInt("button2", R.string.ok);
+				bundle.putInt("layout", R.layout.verify);
 				
 				ResetDialogFragment rdf = new ResetDialogFragment();
-				rdf.setArguments(b);
+				rdf.setArguments(bundle);
 				rdf.show(getFragmentManager(), "Reset");
 			}
 		});
@@ -68,13 +63,13 @@ public class CounterActivity extends Activity {
 			@Override
 			public void onClick(View arg0) {
 				
-				Bundle b = new Bundle();
-				b.putInt("button1", R.string.cancel);
-				b.putInt("button2", R.string.ok);
-				b.putInt("layout", R.layout.verify);
+				Bundle bundle = new Bundle();
+				bundle.putInt("button1", R.string.cancel);
+				bundle.putInt("button2", R.string.ok);
+				bundle.putInt("layout", R.layout.verify);
 				
 				DeleteDialogFragment ddf = new DeleteDialogFragment();
-				ddf.setArguments(b);
+				ddf.setArguments(bundle);
 				ddf.show(getFragmentManager(), "Delete");
 			}
 		});
@@ -87,13 +82,13 @@ public class CounterActivity extends Activity {
 			@Override
 			public void onClick(View arg0) {
 				
-				Bundle b = new Bundle();
-				b.putInt("button1", R.string.cancel);
-				b.putInt("button2", R.string.ok);
-				b.putInt("layout", R.layout.rename);
+				Bundle bundle = new Bundle();
+				bundle.putInt("button1", R.string.cancel);
+				bundle.putInt("button2", R.string.ok);
+				bundle.putInt("layout", R.layout.rename);
 				
 				RenameDialogFragment rdf = new RenameDialogFragment();
-				rdf.setArguments(b);
+				rdf.setArguments(bundle);
 				rdf.show(getFragmentManager(), "Rename");
 			}
 		});
