@@ -17,7 +17,7 @@ import android.widget.Spinner;
 
 public class MainActivity extends Activity {
 
-	private CustomeListAdaper adapter;
+	private CustomListAdaper adapter;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -88,7 +88,7 @@ public class MainActivity extends Activity {
 		ListView countersListView = (ListView) findViewById(R.id.listView1);
 
 		// Setting up the counters list
-		adapter = new CustomeListAdaper(getApplicationContext(), R.layout.list,
+		adapter = new CustomListAdaper(getApplicationContext(), R.layout.list,
 				listController.getList());
 		countersListView.setAdapter(adapter);
 

@@ -60,14 +60,16 @@ public final class R {
     }
     public static final class layout {
         public static final int activity_main=0x7f030000;
-        public static final int counter=0x7f030001;
-        public static final int list=0x7f030002;
-        public static final int rename=0x7f030003;
-        public static final int verify=0x7f030004;
+        public static final int activity_stats=0x7f030001;
+        public static final int counter=0x7f030002;
+        public static final int list=0x7f030003;
+        public static final int rename=0x7f030004;
+        public static final int verify=0x7f030005;
     }
     public static final class menu {
         public static final int counter=0x7f090000;
         public static final int main=0x7f090001;
+        public static final int stats=0x7f090002;
     }
     public static final class string {
         public static final int action_settings=0x7f060001;
@@ -79,6 +81,7 @@ public final class R {
         public static final int counter_text=0x7f060005;
         public static final int delete=0x7f06000d;
         public static final int edit=0x7f060004;
+        public static final int hello_world=0x7f060014;
         public static final int increment=0x7f060009;
         public static final int new_counter=0x7f060002;
         public static final int ok=0x7f06000f;
@@ -88,6 +91,7 @@ public final class R {
         public static final int sort_prompt=0x7f060012;
         public static final int stats=0x7f060003;
         public static final int title_activity_counter=0x7f06000a;
+        public static final int title_activity_stats=0x7f060013;
         public static final int verify_text=0x7f060011;
     }
     public static final class style {

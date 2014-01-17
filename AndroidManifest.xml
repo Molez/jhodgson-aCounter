@@ -30,6 +30,10 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.example.jhodgson_acounter.MainActivity" />
         </activity>
+        <activity
+            android:name="com.example.jhodgson_acounter.StatsActivity"
+            android:label="@string/title_activity_stats" >
+        </activity>
     </application>
 
 </manifest>

@@ -19,12 +19,14 @@
     <string name="ok">Ok</string>
     <string name="rename_text">Rename to:</string>
     <string name="verify_text">Are you sure?</string>
-    
+
     <string-array name="sort_array">
         <item>Highest to Lowest</item>
         <item>Lowest to Highest</item>
     </string-array>
-    
+
     <string name="sort_prompt">Sort</string>
+    <string name="title_activity_stats">StatsActivity</string>
+    <string name="hello_world">Hello world!</string>
 
 </resources>
