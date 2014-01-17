@@ -34,7 +34,7 @@ public final class R {
         public static final int ic_launcher=0x7f020000;
     }
     public static final class id {
-        public static final int action_settings=0x7f0a0015;
+        public static final int action_settings=0x7f0a0016;
         public static final int back_main=0x7f0a000d;
         public static final int counter_Name=0x7f0a0001;
         public static final int counter_name=0x7f0a0006;
@@ -56,12 +56,14 @@ public final class R {
         public static final int reset=0x7f0a000b;
         public static final int sort_spinner=0x7f0a0003;
         public static final int stats=0x7f0a0004;
+        public static final int verify_text=0x7f0a0015;
     }
     public static final class layout {
         public static final int activity_main=0x7f030000;
         public static final int counter=0x7f030001;
         public static final int list=0x7f030002;
         public static final int rename=0x7f030003;
+        public static final int verify=0x7f030004;
     }
     public static final class menu {
         public static final int counter=0x7f090000;
@@ -83,9 +85,10 @@ public final class R {
         public static final int rename=0x7f06000c;
         public static final int rename_text=0x7f060010;
         public static final int reset=0x7f06000b;
-        public static final int sort_prompt=0x7f060011;
+        public static final int sort_prompt=0x7f060012;
         public static final int stats=0x7f060003;
         public static final int title_activity_counter=0x7f06000a;
+        public static final int verify_text=0x7f060011;
     }
     public static final class style {
         /** 

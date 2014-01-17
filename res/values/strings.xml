@@ -18,6 +18,7 @@
     <string name="cancel">Cancel</string>
     <string name="ok">Ok</string>
     <string name="rename_text">Rename to:</string>
+    <string name="verify_text">Are you sure?</string>
     
     <string-array name="sort_array">
         <item>Highest to Lowest</item>
