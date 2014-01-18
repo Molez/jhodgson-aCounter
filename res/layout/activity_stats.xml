@@ -8,9 +8,68 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context=".StatsActivity" >
 
-    <TextView
+     <TextView
+        android:id="@+id/stats_name"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/hello_world" />
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:text="@string/stats_name"
+        android:textSize="20dp"
+        android:singleLine="true"
+        android:paddingLeft="16dp"
+        android:paddingRight="16dp" />
+        
+  	<LinearLayout
+    	android:id="@+id/s_layout_one"
+    	android:layout_width="match_parent"
+    	android:layout_height="wrap_content"
+    	android:orientation="horizontal"
+    	android:layout_below="@+id/stats_name">
+    
+   		<Button
+    		android:id="@+id/hour"
+        	android:layout_width="0dp"
+        	android:layout_height="wrap_content"
+        	android:text="@string/hour"
+        	android:layout_weight="1"/>
+        	
+     <Button
+    		android:id="@+id/day"
+        	android:layout_width="0dp"
+        	android:layout_height="wrap_content"
+        	android:text="@string/day"
+        	android:layout_weight="1"/> 
+    </LinearLayout>
+     	    	 
+   	<LinearLayout
+    	android:id="@+id/s_layout_two"
+    	android:layout_width="match_parent"
+    	android:layout_height="wrap_content"
+    	android:orientation="horizontal"
+    	android:layout_below="@id/s_layout_one">
+        	
+     <Button
+    		android:id="@+id/week"
+        	android:layout_width="0dp"
+        	android:layout_height="wrap_content"
+        	android:text="@string/week"
+        	android:layout_weight="1"/>
+        	
+     <Button
+    		android:id="@+id/month"
+        	android:layout_width="0dp"
+        	android:layout_height="wrap_content"
+        	android:text="@string/month"
+        	android:layout_weight="1"/> 
+   	</LinearLayout>
+   	
+   	<ListView
+             android:id="@+id/stats_list_View"
+             android:layout_width="match_parent"
+             android:layout_height="wrap_content"
+             android:layout_alignParentLeft="true"
+             android:layout_below="@id/s_layout_two">
+  	</ListView>
 
 </RelativeLayout>

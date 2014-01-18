@@ -106,6 +106,20 @@ public class MainActivity extends Activity {
 			}
 		});
 		// ----------------------------------------------------------------------------------------------------------------------
+		//Stats button functionality
+		Button statsButton = (Button) findViewById(R.id.stats);
+		statsButton.setOnClickListener(new OnClickListener() {
+
+			@Override
+			public void onClick(View arg0) {
+				Intent intent = new Intent(MainActivity.this,
+						StatsActivity.class);
+				intent.putExtra("com.example.jhodgson_acounter.STATS_NAME", "Global Stats");
+				startActivity(intent);
+			}
+		});
+		
+		
 	}
 
 	@Override

@@ -7,6 +7,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
+import android.widget.TextView;
 
 public class CustomStatsAdapter extends ArrayAdapter<StatsModel> {
 	
@@ -34,11 +35,11 @@ public class CustomStatsAdapter extends ArrayAdapter<StatsModel> {
 				.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
 		View rowView = inflater.inflate(resource, parent, false);
 
-		//TextView name = (TextView) rowView.findViewById(R.id.list_name);
-		//TextView count = (TextView) rowView.findViewById(R.id.list_count);
+		TextView name = (TextView) rowView.findViewById(R.id.list_name);
+		TextView count = (TextView) rowView.findViewById(R.id.list_count);
 
-		//name.setText(items.get(position).toString());
-		//count.setText(items.get(position).getCountString());
+		name.setText(items.get(position).toString());
+		count.setText(items.get(position).getCountString());
 		return rowView;
 	}
 

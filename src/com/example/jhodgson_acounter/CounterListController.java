@@ -44,15 +44,6 @@ public class CounterListController {
 		currentCounter = null;
 	}
 
-	// Returns existence of editable counter
-	public Boolean hasEditableCounter() {
-		if (currentCounter == null) {
-			return false;
-		} else {
-			return true;
-		}
-	}
-
 	public void resetCounter() {
 		currentCounter.reset();
 	}

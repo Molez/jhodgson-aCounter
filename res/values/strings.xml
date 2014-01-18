@@ -19,6 +19,11 @@
     <string name="ok">Ok</string>
     <string name="rename_text">Rename to:</string>
     <string name="verify_text">Are you sure?</string>
+ 	<string name="stats_name">Default</string>
+    <string name="hour">Hour</string>
+    <string name="day">Day</string>
+    <string name="week">Week</string>
+    <string name="month">Month</string>
 
     <string-array name="sort_array">
         <item>Highest to Lowest</item>
