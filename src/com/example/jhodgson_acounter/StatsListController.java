@@ -24,5 +24,9 @@ public class StatsListController {
 	public void increment() {
 		currentStats.increment();
 	}
+	
+	public void clear(){
+		statsListModel.getList().clear();
+	}
 
 }
