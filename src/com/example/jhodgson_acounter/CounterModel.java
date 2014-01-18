@@ -57,4 +57,8 @@ public class CounterModel implements Comparable<CounterModel> {
 	public void setName(String name){
 		this.name = name;
 	}
+	
+	public ArrayList<Calendar> getCountTimes(){
+		return this.countTimes;
+	}
 }

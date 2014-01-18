@@ -6,16 +6,13 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.View;
 import android.view.View.OnClickListener;
-import android.widget.AdapterView;
-import android.widget.AdapterView.OnItemClickListener;
 import android.widget.Button;
-import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.TextView;
 
 public class StatsActivity extends Activity {
 
-	private ReportGenerator report;
+	private GlobalReportGenerator report;
 	private CustomStatsAdapter adapter;
 	private StatsListController listController;
 
@@ -25,6 +22,7 @@ public class StatsActivity extends Activity {
 		setContentView(R.layout.activity_stats);
 
 		report = new GlobalReportGenerator();
+		report.init();
 		listController = report.generateEmptyReport();
 
 		Intent intent = getIntent();
@@ -96,6 +94,20 @@ public class StatsActivity extends Activity {
 		adapter = new CustomStatsAdapter(getApplicationContext(),
 				R.layout.list, listController.getList());
 		statsListView.setAdapter(adapter);
+		
+		// ----------------------------------------------------------------------------------------------------------------------
+		// Back functionality
+		Button backButton = (Button) findViewById(R.id.back_stats);
+		backButton.setOnClickListener(new OnClickListener() {
+
+			@Override
+			public void onClick(View arg0) {
+				// Clear the current editable counter
+				Intent intent = new Intent(StatsActivity.this,
+						MainActivity.class);
+				startActivity(intent);
+			}
+		});
 	}
 
 	@Override

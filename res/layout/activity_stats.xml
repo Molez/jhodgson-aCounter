@@ -69,7 +69,15 @@
              android:layout_width="match_parent"
              android:layout_height="wrap_content"
              android:layout_alignParentLeft="true"
-             android:layout_below="@id/s_layout_two">
+             android:layout_below="@id/s_layout_two"
+             android:layout_above="@+id/back_stats">
   	</ListView>
+  	
+  	    <Button
+    		android:id="@id/back_stats"
+        	android:layout_width="match_parent"
+        	android:layout_height="wrap_content"
+        	android:text="@string/back_main"
+        	android:layout_alignParentBottom="true" />
 
 </RelativeLayout>

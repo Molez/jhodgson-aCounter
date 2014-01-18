@@ -9,7 +9,7 @@ public abstract class ReportGenerator {
 		this.statsListController = new StatsListController();
 		this.counterListController = new CounterListController();
 	}
-	
+
 	public StatsListController generateEmptyReport(){
 		statsListController.clear();
 		return statsListController;
