@@ -12,23 +12,35 @@ import android.widget.TextView;
 
 public class StatsActivity extends Activity {
 
-	private GlobalReportGenerator report;
+	private ReportGenerator report;
 	private CustomStatsAdapter adapter;
 	private StatsListController listController;
+	private boolean cameFromMain = false;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_stats);
-
-		report = new GlobalReportGenerator();
-		report.init();
-		listController = report.generateEmptyReport();
-
+		
 		Intent intent = getIntent();
 		TextView textView = (TextView) findViewById(R.id.stats_name);
-		textView.setText(intent
-				.getStringExtra("com.example.jhodgson_acounter.STATS_NAME"));
+		String statsName = intent
+				.getStringExtra("com.example.jhodgson_acounter.STATS_NAME");
+		textView.setText(statsName);
+		
+		if(statsName.equals("Global Stats")){
+			report = new GlobalReportGenerator();
+			report.init();
+			listController = report.generateEmptyReport();
+			cameFromMain = true;
+		}
+		else
+		{
+			report = new CounterReportGenerator();
+			report.init();
+			listController = report.generateEmptyReport();
+			cameFromMain = false;
+		}
 
 		// ----------------------------------------------------------------------------------------------------------------------
 		// "Hour" button functionality
@@ -102,10 +114,17 @@ public class StatsActivity extends Activity {
 
 			@Override
 			public void onClick(View arg0) {
-				// Clear the current editable counter
+				
+				if(cameFromMain){
 				Intent intent = new Intent(StatsActivity.this,
 						MainActivity.class);
 				startActivity(intent);
+				}
+				else{
+					Intent intent = new Intent(StatsActivity.this,
+							CounterActivity.class);
+					startActivity(intent);
+				}
 			}
 		});
 	}

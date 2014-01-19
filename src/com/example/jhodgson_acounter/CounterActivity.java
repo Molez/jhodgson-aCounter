@@ -13,7 +13,7 @@ public class CounterActivity extends Activity {
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		setContentView(R.layout.counter);
+		setContentView(R.layout.activity_counter);
 
 		final CounterListController listController = new CounterListController();
 
@@ -48,7 +48,7 @@ public class CounterActivity extends Activity {
 				bundle.putInt("button1", R.string.cancel);
 				bundle.putInt("button2", R.string.ok);
 				bundle.putInt("layout", R.layout.verify);
-				
+
 				ResetDialogFragment rdf = new ResetDialogFragment();
 				rdf.setArguments(bundle);
 				rdf.show(getFragmentManager(), "Reset");
@@ -62,12 +62,12 @@ public class CounterActivity extends Activity {
 
 			@Override
 			public void onClick(View arg0) {
-				
+
 				Bundle bundle = new Bundle();
 				bundle.putInt("button1", R.string.cancel);
 				bundle.putInt("button2", R.string.ok);
 				bundle.putInt("layout", R.layout.verify);
-				
+
 				DeleteDialogFragment ddf = new DeleteDialogFragment();
 				ddf.setArguments(bundle);
 				ddf.show(getFragmentManager(), "Delete");
@@ -81,12 +81,12 @@ public class CounterActivity extends Activity {
 
 			@Override
 			public void onClick(View arg0) {
-				
+
 				Bundle bundle = new Bundle();
 				bundle.putInt("button1", R.string.cancel);
 				bundle.putInt("button2", R.string.ok);
 				bundle.putInt("layout", R.layout.rename);
-				
+
 				RenameDialogFragment rdf = new RenameDialogFragment();
 				rdf.setArguments(bundle);
 				rdf.show(getFragmentManager(), "Rename");
@@ -104,6 +104,21 @@ public class CounterActivity extends Activity {
 				listController.clearCurrentCounter();
 				Intent intent = new Intent(CounterActivity.this,
 						MainActivity.class);
+				startActivity(intent);
+			}
+		});
+
+		// ----------------------------------------------------------------------------------------------------------------------
+		// Stats button functionality
+		Button statsButton = (Button) findViewById(R.id.individual_stats);
+		statsButton.setOnClickListener(new OnClickListener() {
+
+			@Override
+			public void onClick(View arg0) {
+				Intent intent = new Intent(CounterActivity.this,
+						StatsActivity.class);
+				intent.putExtra("com.example.jhodgson_acounter.STATS_NAME",
+						listController.getCurrentName() + " Stats");
 				startActivity(intent);
 			}
 		});

@@ -6,8 +6,6 @@ import java.util.Collections;
 
 public class GlobalReportGenerator extends ReportGenerator{
 	
-	private ArrayList<Calendar> clicks;
-	
 	public void init(){
 		
 		clicks = new ArrayList<Calendar>();
@@ -19,37 +17,4 @@ public class GlobalReportGenerator extends ReportGenerator{
 		}
 		Collections.sort(clicks);
 	}
-	
-	@Override
-	public StatsListController generateHourlyReport() {
-		statsListController.clear();
-		
-		for(int i =0; i < clicks.size(); i++){
-			statsListController.addStats(clicks.get(i).getTime().toString());
-		}
-		
-		return statsListController;
-	}
-
-	@Override
-	public StatsListController generateDailyReport() {
-		statsListController.clear();
-		
-		statsListController.addStats("Jan 1st");
-		statsListController.increment();
-		return statsListController;
-	}
-
-	@Override
-	public StatsListController generateWeeklyReport() {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
-	public StatsListController generateMonthlyReport() {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
 }

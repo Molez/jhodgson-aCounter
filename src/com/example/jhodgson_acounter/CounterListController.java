@@ -21,6 +21,10 @@ public class CounterListController {
 	public void addCounter(String name) {
 		counterListModel.getList().add(new CounterModel(name));
 	}
+	
+	public CounterModel getCurrentCounter(){
+		return currentCounter;
+	}
 
 	public void setCurrentCounter(int index) {
 		currentCounter = counterListModel.getList().get(index);
