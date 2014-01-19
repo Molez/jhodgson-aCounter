@@ -2,11 +2,13 @@ package com.example.jhodgson_acounter;
 
 /*This class implements  the counter object*/
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Calendar;
 
-public class CounterModel implements Comparable<CounterModel> {
+public class CounterModel implements Comparable<CounterModel>, Serializable {
 
+	private static final long serialVersionUID = 1L;
 	// ------Local Counter Variables---------
 	private String name;
 	private int count;

@@ -69,4 +69,8 @@ public class CounterListController {
 	public void renameCurrentCounter(String name) {
 		currentCounter.setName(name);
 	}
+	
+	public void reloadCounters(ArrayList<CounterModel> list){
+		counterListModel.setList(list);
+	}
 }

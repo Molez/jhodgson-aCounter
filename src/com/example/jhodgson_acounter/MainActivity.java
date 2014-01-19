@@ -1,5 +1,7 @@
 package com.example.jhodgson_acounter;
 
+import java.io.File;
+
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
@@ -24,8 +26,12 @@ public class MainActivity extends Activity {
 		super.onCreate(savedInstanceState);
 
 		setContentView(R.layout.activity_main);
+		
+		StateController.loadState(getFilesDir());
 
 		final CounterListController listController = new CounterListController();
+		
+		//Load the 
 
 		// ----------------------------------------------------------------------------------------------------------------------
 		// "New" button functionality
@@ -43,6 +49,7 @@ public class MainActivity extends Activity {
 					listController.addCounter(name);
 					counterName.setText(""); // Clear the text after use
 					adapter.notifyDataSetChanged();
+					StateController.saveState(getFilesDir());
 				}
 			}
 		});
@@ -129,4 +136,10 @@ public class MainActivity extends Activity {
 		getMenuInflater().inflate(R.menu.main, menu);
 		return true;
 	}
+	
+	 @Override
+     protected void onDestroy() {
+		 StateController.saveState(getFilesDir());
+	 }
+
 }
