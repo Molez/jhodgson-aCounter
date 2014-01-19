@@ -8,8 +8,8 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 
-/*Creates a new custome popup alert dialog. The action of this 
-dialog is defined by the doDo() function.*/
+/*Creates a new custom pop-up alert dialog. The action of this 
+ dialog is defined by the doDo() function.*/
 
 public abstract class CustomDialogFragment extends DialogFragment {
 
@@ -22,11 +22,11 @@ public abstract class CustomDialogFragment extends DialogFragment {
 		int layout = (Integer) bundle.get("layout");
 
 		AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
-		
+
 		LayoutInflater inflater = getActivity().getLayoutInflater();
 		final View v = inflater.inflate(layout, null);
 		builder.setView(v);
-		
+
 		builder.setPositiveButton(button2,
 				new DialogInterface.OnClickListener() {
 					public void onClick(DialogInterface dialog, int id) {

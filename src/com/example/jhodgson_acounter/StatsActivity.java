@@ -21,21 +21,19 @@ public class StatsActivity extends Activity {
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_stats);
-		
+
 		Intent intent = getIntent();
 		TextView textView = (TextView) findViewById(R.id.stats_name);
 		String statsName = intent
 				.getStringExtra("com.example.jhodgson_acounter.STATS_NAME");
 		textView.setText(statsName);
-		
-		if(statsName.equals("Global Stats")){
+
+		if (statsName.equals("Global Stats")) {
 			report = new GlobalReportGenerator();
 			report.init();
 			listController = report.generateEmptyReport();
 			cameFromMain = true;
-		}
-		else
-		{
+		} else {
 			report = new CounterReportGenerator();
 			report.init();
 			listController = report.generateEmptyReport();
@@ -106,7 +104,7 @@ public class StatsActivity extends Activity {
 		adapter = new CustomStatsAdapter(getApplicationContext(),
 				R.layout.list, listController.getList());
 		statsListView.setAdapter(adapter);
-		
+
 		// ----------------------------------------------------------------------------------------------------------------------
 		// Back functionality
 		Button backButton = (Button) findViewById(R.id.back_stats);
@@ -114,13 +112,12 @@ public class StatsActivity extends Activity {
 
 			@Override
 			public void onClick(View arg0) {
-				
-				if(cameFromMain){
-				Intent intent = new Intent(StatsActivity.this,
-						MainActivity.class);
-				startActivity(intent);
-				}
-				else{
+
+				if (cameFromMain) {
+					Intent intent = new Intent(StatsActivity.this,
+							MainActivity.class);
+					startActivity(intent);
+				} else {
 					Intent intent = new Intent(StatsActivity.this,
 							CounterActivity.class);
 					startActivity(intent);

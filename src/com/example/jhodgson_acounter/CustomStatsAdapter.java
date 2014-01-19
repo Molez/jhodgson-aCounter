@@ -10,7 +10,7 @@ import android.widget.ArrayAdapter;
 import android.widget.TextView;
 
 public class CustomStatsAdapter extends ArrayAdapter<StatsModel> {
-	
+
 	public CustomStatsAdapter(Context context, int textViewResourceId) {
 		super(context, textViewResourceId);
 	}

@@ -2,7 +2,7 @@ package com.example.jhodgson_acounter;
 
 import java.util.ArrayList;
 
-public class CounterListModel implements CustomListModel<CounterModel>{
+public class CounterListModel implements CustomListModel<CounterModel> {
 
 	private ArrayList<CounterModel> list;
 

@@ -10,33 +10,33 @@ public abstract class ReportGenerator {
 	protected StatsListController statsListController;
 	protected CounterListController counterListController;
 	protected ArrayList<Calendar> clicks;
-	
-	public ReportGenerator(){
+
+	public ReportGenerator() {
 		this.statsListController = new StatsListController();
 		this.counterListController = new CounterListController();
 	}
-	
+
 	public abstract void init();
 
-	public StatsListController generateEmptyReport(){
+	public StatsListController generateEmptyReport() {
 		statsListController.clear();
 		return statsListController;
 	}
-	
+
 	public StatsListController generateHourlyReport() {
 		statsListController.clear();
-		Calendar cal; 
+		Calendar cal;
 		String oldDate = null;
-		
-		for(int i =0; i < clicks.size(); i++){
+
+		for (int i = 0; i < clicks.size(); i++) {
 			cal = clicks.get(i);
-			SimpleDateFormat date = new SimpleDateFormat("MMM DD, yyyy -- KK aa", Locale.CANADA);
+			SimpleDateFormat date = new SimpleDateFormat(
+					"MMM DD, yyyy -- KK aa", Locale.CANADA);
 			String printDate = date.format(cal.getTime());
-			
-			if(printDate.equals(oldDate)){
+
+			if (printDate.equals(oldDate)) {
 				statsListController.increment();
-			}
-			else{
+			} else {
 				oldDate = printDate;
 				statsListController.addStats(printDate);
 				statsListController.increment();
@@ -47,18 +47,18 @@ public abstract class ReportGenerator {
 
 	public StatsListController generateDailyReport() {
 		statsListController.clear();
-		Calendar cal; 
+		Calendar cal;
 		String oldDate = null;
-		
-		for(int i =0; i < clicks.size(); i++){
+
+		for (int i = 0; i < clicks.size(); i++) {
 			cal = clicks.get(i);
-			SimpleDateFormat date = new SimpleDateFormat("MMM DD, yyyy", Locale.CANADA);
+			SimpleDateFormat date = new SimpleDateFormat("MMM DD, yyyy",
+					Locale.CANADA);
 			String printDate = date.format(cal.getTime());
-			
-			if(printDate.equals(oldDate)){
+
+			if (printDate.equals(oldDate)) {
 				statsListController.increment();
-			}
-			else{
+			} else {
 				oldDate = printDate;
 				statsListController.addStats(printDate);
 				statsListController.increment();
@@ -69,18 +69,18 @@ public abstract class ReportGenerator {
 
 	public StatsListController generateWeeklyReport() {
 		statsListController.clear();
-		Calendar cal; 
+		Calendar cal;
 		String oldDate = null;
-		
-		for(int i =0; i < clicks.size(); i++){
+
+		for (int i = 0; i < clicks.size(); i++) {
 			cal = clicks.get(i);
-			SimpleDateFormat date = new SimpleDateFormat("MMM, yyyy 'week' W", Locale.CANADA);
+			SimpleDateFormat date = new SimpleDateFormat("MMM, yyyy 'week' W",
+					Locale.CANADA);
 			String printDate = date.format(cal.getTime());
 
-			if(printDate.equals(oldDate)){
+			if (printDate.equals(oldDate)) {
 				statsListController.increment();
-			}
-			else{
+			} else {
 				oldDate = printDate;
 				statsListController.addStats(printDate);
 				statsListController.increment();
@@ -91,18 +91,18 @@ public abstract class ReportGenerator {
 
 	public StatsListController generateMonthlyReport() {
 		statsListController.clear();
-		Calendar cal; 
+		Calendar cal;
 		String oldDate = null;
-		
-		for(int i =0; i < clicks.size(); i++){
+
+		for (int i = 0; i < clicks.size(); i++) {
 			cal = clicks.get(i);
-			SimpleDateFormat date = new SimpleDateFormat("MMM, yyyy", Locale.CANADA);
+			SimpleDateFormat date = new SimpleDateFormat("MMM, yyyy",
+					Locale.CANADA);
 			String printDate = date.format(cal.getTime());
-			
-			if(printDate.equals(oldDate)){
+
+			if (printDate.equals(oldDate)) {
 				statsListController.increment();
-			}
-			else{
+			} else {
 				oldDate = printDate;
 				statsListController.addStats(printDate);
 				statsListController.increment();

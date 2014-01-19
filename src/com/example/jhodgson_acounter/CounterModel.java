@@ -52,13 +52,13 @@ public class CounterModel implements Comparable<CounterModel> {
 	public int compareTo(CounterModel second) {
 		return this.count < second.getCount() ? 1 : (this.count > second
 				.getCount() ? -1 : 0);
-	}	
-	
-	public void setName(String name){
+	}
+
+	public void setName(String name) {
 		this.name = name;
 	}
-	
-	public ArrayList<Calendar> getCountTimes(){
+
+	public ArrayList<Calendar> getCountTimes() {
 		return this.countTimes;
 	}
 }

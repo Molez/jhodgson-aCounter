@@ -21,8 +21,8 @@ public class CounterListController {
 	public void addCounter(String name) {
 		counterListModel.getList().add(new CounterModel(name));
 	}
-	
-	public CounterModel getCurrentCounter(){
+
+	public CounterModel getCurrentCounter() {
 		return currentCounter;
 	}
 
@@ -51,8 +51,8 @@ public class CounterListController {
 	public void resetCounter() {
 		currentCounter.reset();
 	}
-	
-	public void deleteCurrentCounter(){
+
+	public void deleteCurrentCounter() {
 		counterListModel.getList().remove(currentCounter);
 		currentCounter = null;
 	}
@@ -60,12 +60,13 @@ public class CounterListController {
 	public void sortCounters() {
 		Collections.sort(counterListModel.getList());
 	}
-	
+
 	public void sortCountersReverse() {
-		Collections.sort(counterListModel.getList(),Collections.reverseOrder());
+		Collections
+				.sort(counterListModel.getList(), Collections.reverseOrder());
 	}
-	
-	public void renameCurrentCounter(String name){
+
+	public void renameCurrentCounter(String name) {
 		currentCounter.setName(name);
 	}
 }

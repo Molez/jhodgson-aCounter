@@ -55,7 +55,8 @@ public class MainActivity extends Activity {
 				.createFromResource(this, R.array.sort_array,
 						android.R.layout.simple_spinner_item);
 
-		sortAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+		sortAdapter
+				.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
 		spinner.setAdapter(sortAdapter);
 
 		spinner.setOnItemSelectedListener(new OnItemSelectedListener() {
@@ -64,11 +65,11 @@ public class MainActivity extends Activity {
 			public void onItemSelected(AdapterView<?> parentView,
 					View selectedItemView, int position, long id) {
 
-				if(position == 0)
+				if (position == 0)
 					listController.sortCounters();
 				else
 					listController.sortCountersReverse();
-				
+
 				adapter.notifyDataSetChanged();
 			}
 
@@ -97,7 +98,7 @@ public class MainActivity extends Activity {
 			@Override
 			public void onItemClick(AdapterView<?> parent, final View view,
 					int position, long id) {
-				
+
 				listController.setCurrentCounter(position);
 
 				Intent intent = new Intent(MainActivity.this,
@@ -106,7 +107,7 @@ public class MainActivity extends Activity {
 			}
 		});
 		// ----------------------------------------------------------------------------------------------------------------------
-		//Stats button functionality
+		// Stats button functionality
 		Button statsButton = (Button) findViewById(R.id.stats);
 		statsButton.setOnClickListener(new OnClickListener() {
 
@@ -114,12 +115,12 @@ public class MainActivity extends Activity {
 			public void onClick(View arg0) {
 				Intent intent = new Intent(MainActivity.this,
 						StatsActivity.class);
-				intent.putExtra("com.example.jhodgson_acounter.STATS_NAME", "Global Stats");
+				intent.putExtra("com.example.jhodgson_acounter.STATS_NAME",
+						"Global Stats");
 				startActivity(intent);
 			}
 		});
-		
-		
+
 	}
 
 	@Override

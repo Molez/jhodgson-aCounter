@@ -3,7 +3,7 @@ package com.example.jhodgson_acounter;
 import java.util.ArrayList;
 
 public class StatsListModel implements CustomListModel<StatsModel> {
-	
+
 	private ArrayList<StatsModel> list;
 
 	public StatsListModel() {
