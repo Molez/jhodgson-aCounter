@@ -81,8 +81,9 @@ public class MainActivity extends Activity {
 			}
 
 			@Override
-			public void onNothingSelected(AdapterView<?> parentView) {
-				// your code here
+			public void onNothingSelected(AdapterView<?> arg0) {
+				// TODO Auto-generated method stub
+				
 			}
 
 		});
@@ -101,7 +102,7 @@ public class MainActivity extends Activity {
 		countersListView.setAdapter(adapter);
 
 		countersListView.setOnItemClickListener(new OnItemClickListener() {
-
+			
 			@Override
 			public void onItemClick(AdapterView<?> parent, final View view,
 					int position, long id) {
@@ -113,7 +114,7 @@ public class MainActivity extends Activity {
 				startActivity(intent);
 			}
 		});
-		// ----------------------------------------------------------------------------------------------------------------------
+		// --------------------------guide--------------------------------------------------------------------------------------------
 		// Stats button functionality
 		Button statsButton = (Button) findViewById(R.id.stats);
 		statsButton.setOnClickListener(new OnClickListener() {
@@ -143,6 +144,11 @@ public class MainActivity extends Activity {
 		 listController.saveState(getBaseContext());
 	 }
 	 
+	 protected void onStop(){
+		 super.onStop();
+		 listController.saveState(getBaseContext());
+	 }
+	 
 	 @Override
 	 protected void onPause()
 	 {
@@ -150,4 +156,9 @@ public class MainActivity extends Activity {
 	     listController.saveState(getBaseContext());
 	 }
 
+	 protected void onResume(){
+		 super.onResume();
+		 adapter.notifyDataSetChanged();
+	 }
+	 
 }

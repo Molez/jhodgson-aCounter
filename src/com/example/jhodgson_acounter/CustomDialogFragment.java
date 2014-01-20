@@ -3,6 +3,7 @@ package com.example.jhodgson_acounter;
 import android.app.AlertDialog;
 import android.app.Dialog;
 import android.app.DialogFragment;
+import android.content.Context;
 import android.content.DialogInterface;
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -30,7 +31,7 @@ public abstract class CustomDialogFragment extends DialogFragment {
 		builder.setPositiveButton(button2,
 				new DialogInterface.OnClickListener() {
 					public void onClick(DialogInterface dialog, int id) {
-						doThis(v, getActivity().getWindow().getDecorView());
+						doThis(v, getActivity().getWindow().getDecorView(), getActivity());
 					}
 				}).setNegativeButton(button1,
 				new DialogInterface.OnClickListener() {
@@ -42,5 +43,5 @@ public abstract class CustomDialogFragment extends DialogFragment {
 		return builder.create();
 	}
 
-	abstract void doThis(View view, View parentView);
+	abstract void doThis(View view, View parentView, Context context);
 }

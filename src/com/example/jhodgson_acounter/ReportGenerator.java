@@ -31,7 +31,7 @@ public abstract class ReportGenerator {
 		for (int i = 0; i < clicks.size(); i++) {
 			cal = clicks.get(i);
 			SimpleDateFormat date = new SimpleDateFormat(
-					"MMM DD, yyyy -- KK aa", Locale.CANADA);
+					"MMM DD, yyyy -- KK':00 'aa", Locale.CANADA);
 			String printDate = date.format(cal.getTime());
 
 			if (printDate.equals(oldDate)) {

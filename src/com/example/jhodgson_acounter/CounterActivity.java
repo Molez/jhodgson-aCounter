@@ -9,13 +9,13 @@ import android.widget.Button;
 import android.widget.TextView;
 
 public class CounterActivity extends Activity {
+	
+	CounterListController listController = new CounterListController();
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_counter);
-
-		final CounterListController listController = new CounterListController();
 
 		// Set the name text
 		TextView counterName = (TextView) findViewById(R.id.counter_name);
@@ -46,7 +46,7 @@ public class CounterActivity extends Activity {
 			@Override
 			public void onClick(View arg0) {
 				Bundle bundle = new Bundle();
-				bundle.putInt("button1", R.string.cancel);
+				bundle.putInt("button1", R.string.cancel);	
 				bundle.putInt("button2", R.string.ok);
 				bundle.putInt("layout", R.layout.verify);
 
@@ -91,7 +91,7 @@ public class CounterActivity extends Activity {
 				RenameDialogFragment rdf = new RenameDialogFragment();
 				rdf.setArguments(bundle);
 				rdf.show(getFragmentManager(), "Rename");
-			}
+			}		
 		});
 		// ----------------------------------------------------------------------------------------------------------------------
 
@@ -122,4 +122,24 @@ public class CounterActivity extends Activity {
 			}
 		});
 	}
+	
+	@Override
+    protected void onDestroy() {
+		 super.onDestroy();
+		 listController.saveState(getBaseContext());
+	 }
+	 
+	 protected void onStop(){
+		 super.onStop();
+		 listController.saveState(getBaseContext());
+	 }
+	 
+	 @Override
+	 protected void onPause()
+	 {
+	     super.onPause();
+	     listController.saveState(getBaseContext());
+	 }
+
+	
 }
