@@ -19,6 +19,7 @@ import android.widget.Spinner;
 public class MainActivity extends Activity {
 
 	private CustomListAdaper adapter;
+	private CounterListController listController = new CounterListController();
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -26,7 +27,7 @@ public class MainActivity extends Activity {
 
 		setContentView(R.layout.activity_main);
 		
-		StateController.loadState(getFilesDir());
+		listController.restoreState(getBaseContext());
 
 		final CounterListController listController = new CounterListController();
 		
@@ -48,7 +49,7 @@ public class MainActivity extends Activity {
 					listController.addCounter(name);
 					counterName.setText(""); // Clear the text after use
 					adapter.notifyDataSetChanged();
-					StateController.saveState(getFilesDir());
+					listController.saveState(getBaseContext());
 				}
 			}
 		});
@@ -139,15 +140,14 @@ public class MainActivity extends Activity {
 	 @Override
      protected void onDestroy() {
 		 super.onDestroy();
-		 StateController.saveState(getFilesDir());
-		 finish();
+		 listController.saveState(getBaseContext());
 	 }
 	 
 	 @Override
 	 protected void onPause()
 	 {
 	     super.onPause();
-	     finish();
+	     listController.saveState(getBaseContext());
 	 }
 
 }

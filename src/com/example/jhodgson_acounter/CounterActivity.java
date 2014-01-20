@@ -34,6 +34,7 @@ public class CounterActivity extends Activity {
 				listController.incrementCounter();
 				TextView count = (TextView) findViewById(R.id.counter_number);
 				count.setText(String.valueOf(listController.getCurrentCount()));
+				listController.saveState(getBaseContext());
 			}
 		});
 

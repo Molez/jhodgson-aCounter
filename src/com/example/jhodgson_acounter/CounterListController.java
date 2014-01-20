@@ -3,6 +3,8 @@ package com.example.jhodgson_acounter;
 import java.util.ArrayList;
 import java.util.Collections;
 
+import android.content.Context;
+
 public class CounterListController {
 
 	private static CounterModel currentCounter = null;
@@ -72,5 +74,13 @@ public class CounterListController {
 	
 	public void reloadCounters(ArrayList<CounterModel> list){
 		counterListModel.setList(list);
+	}
+	
+	public void saveState(Context context){
+		counterListModel.save(context);
+	}
+	
+	public void restoreState(Context context){
+		counterListModel.restore(context);
 	}
 }
