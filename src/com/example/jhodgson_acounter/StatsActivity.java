@@ -15,7 +15,6 @@ public class StatsActivity extends Activity {
 	private ReportGenerator report;
 	private CustomStatsAdapter adapter;
 	private StatsListController listController;
-	private boolean cameFromMain = false;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -32,12 +31,10 @@ public class StatsActivity extends Activity {
 			report = new GlobalReportGenerator();
 			report.init();
 			listController = report.generateEmptyReport();
-			cameFromMain = true;
 		} else {
 			report = new CounterReportGenerator();
 			report.init();
 			listController = report.generateEmptyReport();
-			cameFromMain = false;
 		}
 
 		// ----------------------------------------------------------------------------------------------------------------------
@@ -112,16 +109,7 @@ public class StatsActivity extends Activity {
 
 			@Override
 			public void onClick(View arg0) {
-
-				if (cameFromMain) {
-					Intent intent = new Intent(StatsActivity.this,
-							MainActivity.class);
-					startActivity(intent);
-				} else {
-					Intent intent = new Intent(StatsActivity.this,
-							CounterActivity.class);
-					startActivity(intent);
-				}
+				finish();
 			}
 		});
 	}

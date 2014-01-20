@@ -103,9 +103,7 @@ public class CounterActivity extends Activity {
 			public void onClick(View arg0) {
 				// Clear the current editable counter
 				listController.clearCurrentCounter();
-				Intent intent = new Intent(CounterActivity.this,
-						MainActivity.class);
-				startActivity(intent);
+				finish();
 			}
 		});
 
