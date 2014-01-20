@@ -1,6 +1,5 @@
 package com.example.jhodgson_acounter;
 
-import java.io.File;
 
 import android.app.Activity;
 import android.content.Intent;
@@ -139,7 +138,16 @@ public class MainActivity extends Activity {
 	
 	 @Override
      protected void onDestroy() {
+		 super.onDestroy();
 		 StateController.saveState(getFilesDir());
+		 finish();
+	 }
+	 
+	 @Override
+	 protected void onPause()
+	 {
+	     super.onPause();
+	     finish();
 	 }
 
 }
