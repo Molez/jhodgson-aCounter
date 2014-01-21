@@ -12,7 +12,7 @@ public class ResetDialogFragment extends CustomDialogFragment {
 		TextView count = (TextView) parentView
 				.findViewById(R.id.counter_number);
 		count.setText(String.valueOf(listController.getCurrentCount()));
-		listController.saveState(context);
+		listController.saveState(context); //Save the reset
 	}
 
 }

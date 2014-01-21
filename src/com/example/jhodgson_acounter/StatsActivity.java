@@ -15,6 +15,7 @@ public class StatsActivity extends Activity {
 	private ReportGenerator report;
 	private CustomStatsAdapter adapter;
 	private StatsListController listController;
+	private Button lastButton = null;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -24,10 +25,10 @@ public class StatsActivity extends Activity {
 		Intent intent = getIntent();
 		TextView textView = (TextView) findViewById(R.id.stats_name);
 		String statsName = intent
-				.getStringExtra("com.example.jhodgson_acounter.STATS_NAME");
+				.getStringExtra(MainActivity.EXTRA_MESSAGE);
 		textView.setText(statsName);
 
-		if (statsName.equals("Global Stats")) {
+		if (statsName.equals(MainActivity.GLOBAL)) {
 			report = new GlobalReportGenerator();
 			report.init();
 			listController = report.generateEmptyReport();
@@ -39,11 +40,15 @@ public class StatsActivity extends Activity {
 
 		// ----------------------------------------------------------------------------------------------------------------------
 		// "Hour" button functionality
-		Button hourButton = (Button) findViewById(R.id.hour);
+		final Button hourButton = (Button) findViewById(R.id.hour);
+		
 		hourButton.setOnClickListener(new OnClickListener() {
 
 			@Override
 			public void onClick(View arg0) {
+				resetLastButton();
+				lastButton = hourButton;
+				hourButton.setTextColor(getResources().getColor(R.color.yellow));
 				listController = report.generateHourlyReport();
 				adapter.notifyDataSetChanged();
 
@@ -52,11 +57,16 @@ public class StatsActivity extends Activity {
 
 		// ----------------------------------------------------------------------------------------------------------------------
 		// "Day" button functionality
-		Button dayButton = (Button) findViewById(R.id.day);
+		final Button dayButton = (Button) findViewById(R.id.day);
+		
 		dayButton.setOnClickListener(new OnClickListener() {
 
 			@Override
 			public void onClick(View arg0) {
+				
+				resetLastButton();
+				lastButton = dayButton;
+				dayButton.setTextColor(getResources().getColor(R.color.yellow));
 				listController = report.generateDailyReport();
 				adapter.notifyDataSetChanged();
 
@@ -65,11 +75,15 @@ public class StatsActivity extends Activity {
 
 		// ----------------------------------------------------------------------------------------------------------------------
 		// "Week" button functionality
-		Button weekButton = (Button) findViewById(R.id.week);
+		final Button weekButton = (Button) findViewById(R.id.week);
+
 		weekButton.setOnClickListener(new OnClickListener() {
 
 			@Override
 			public void onClick(View arg0) {
+				resetLastButton();
+				lastButton = weekButton;
+				weekButton.setTextColor(getResources().getColor(R.color.yellow));
 				listController = report.generateWeeklyReport();
 				adapter.notifyDataSetChanged();
 
@@ -78,11 +92,17 @@ public class StatsActivity extends Activity {
 
 		// ----------------------------------------------------------------------------------------------------------------------
 		// "Month" button functionality
-		Button monthButton = (Button) findViewById(R.id.month);
+		final Button monthButton = (Button) findViewById(R.id.month);
+		
 		monthButton.setOnClickListener(new OnClickListener() {
 
 			@Override
 			public void onClick(View arg0) {
+				
+				//Reset the color of the last button back to white
+				resetLastButton();
+				lastButton = monthButton;
+				monthButton.setTextColor(getResources().getColor(R.color.yellow));
 				listController = report.generateMonthlyReport();
 				adapter.notifyDataSetChanged();
 
@@ -120,4 +140,13 @@ public class StatsActivity extends Activity {
 		getMenuInflater().inflate(R.menu.stats, menu);
 		return true;
 	}
+	
+	//Resets the color of the text of the last button clicked
+	private void resetLastButton(){
+		if (lastButton != null){
+			lastButton.setTextColor(getResources().getColor(R.color.white));
+		}
+	}
+	
+	//Stats menu never alters any data that cannot be re-created easily. So we do not bother with onResume() and onPause()
 }

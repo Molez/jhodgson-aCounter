@@ -116,7 +116,7 @@ public class CounterActivity extends Activity {
 			public void onClick(View arg0) {
 				Intent intent = new Intent(CounterActivity.this,
 						StatsActivity.class);
-				intent.putExtra("com.example.jhodgson_acounter.STATS_NAME",
+				intent.putExtra(MainActivity.EXTRA_MESSAGE,
 						listController.getCurrentName() + " Stats");
 				startActivity(intent);
 			}
@@ -129,6 +129,7 @@ public class CounterActivity extends Activity {
 		 listController.saveState(getBaseContext());
 	 }
 	 
+	@Override
 	 protected void onStop(){
 		 super.onStop();
 		 listController.saveState(getBaseContext());

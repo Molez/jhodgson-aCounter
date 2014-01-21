@@ -4,7 +4,6 @@
     <string name="app_name">jhodgson-aCounter</string>
     <string name="action_settings">Settings</string>
     <string name="new_counter">New</string>
-    <string name="stats">Stats</string>
     <string name="edit">Edit</string>
     <string name="counter_text">Counter Name</string>
     <string name="counter_default"> Default </string>
@@ -25,6 +24,7 @@
     <string name="week">Week</string>
     <string name="month">Month</string>
     <string name="global_stats">Global Stats</string>
+    <string name="individual_stats">Counter Stats</string>
 
     <string-array name="sort_array">
         <item>Highest to Lowest</item>

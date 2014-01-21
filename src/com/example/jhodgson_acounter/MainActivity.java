@@ -17,7 +17,9 @@ import android.widget.ListView;
 import android.widget.Spinner;
 
 public class MainActivity extends Activity {
-
+	
+	public final static String EXTRA_MESSAGE = "com.example.myfirstapp.STATS_NAME";
+	public final static String GLOBAL = "Global Stats";
 	private CustomListAdaper adapter;
 	private CounterListController listController = new CounterListController();
 
@@ -27,12 +29,14 @@ public class MainActivity extends Activity {
 
 		setContentView(R.layout.activity_main);
 		
+		//We only ever need to load the data if the program resarts and we lose the cache.
+		//Thus we reload when this menu is created as it is always the first activity made.
+		//TO-DO: Ensure if this activity is recreated multiple times we only reload once per
+		//instance of the program.
 		listController.restoreState(getBaseContext());
 
 		final CounterListController listController = new CounterListController();
 		
-		//Load the 
-
 		// ----------------------------------------------------------------------------------------------------------------------
 		// "New" button functionality
 		Button newButton = (Button) findViewById(R.id.new_counter);
@@ -49,7 +53,7 @@ public class MainActivity extends Activity {
 					listController.addCounter(name);
 					counterName.setText(""); // Clear the text after use
 					adapter.notifyDataSetChanged();
-					listController.saveState(getBaseContext());
+					listController.saveState(getBaseContext()); //Save the new counter
 				}
 			}
 		});
@@ -114,17 +118,17 @@ public class MainActivity extends Activity {
 				startActivity(intent);
 			}
 		});
-		// --------------------------guide--------------------------------------------------------------------------------------------
+		
 		// Stats button functionality
-		Button statsButton = (Button) findViewById(R.id.stats);
+		Button statsButton = (Button) findViewById(R.id.global_stats);
 		statsButton.setOnClickListener(new OnClickListener() {
 
 			@Override
 			public void onClick(View arg0) {
 				Intent intent = new Intent(MainActivity.this,
 						StatsActivity.class);
-				intent.putExtra("com.example.jhodgson_acounter.STATS_NAME",
-						"Global Stats");
+				intent.putExtra(EXTRA_MESSAGE,
+						GLOBAL);
 				startActivity(intent);
 			}
 		});
@@ -138,24 +142,30 @@ public class MainActivity extends Activity {
 		return true;
 	}
 	
+	 //save on destroy
 	 @Override
      protected void onDestroy() {
 		 super.onDestroy();
 		 listController.saveState(getBaseContext());
 	 }
 	 
+	 //Save on stop
+	 @Override
 	 protected void onStop(){
 		 super.onStop();
 		 listController.saveState(getBaseContext());
 	 }
 	 
+	 //Save on pause
 	 @Override
 	 protected void onPause()
 	 {
 	     super.onPause();
 	     listController.saveState(getBaseContext());
 	 }
-
+	 
+	 //Update the counter list on resume
+	 @Override
 	 protected void onResume(){
 		 super.onResume();
 		 adapter.notifyDataSetChanged();

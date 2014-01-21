@@ -36,16 +36,16 @@
     </Spinner>
    			
    	<Button
-   		android:id="@+id/stats"
+   		android:id="@+id/global_stats"
    		android:layout_width="match_parent"
    		android:layout_height="wrap_content"
-   		android:text="@string/stats"
+   		android:text="@string/global_stats"
    		android:layout_alignParentBottom="true" />
 
      <RelativeLayout
    		android:layout_width="fill_parent"
    		android:layout_height="fill_parent"
-   		android:layout_above="@id/stats"
+   		android:layout_above="@id/global_stats"
    		android:layout_below="@id/sort_spinner" >
 
          <ListView
