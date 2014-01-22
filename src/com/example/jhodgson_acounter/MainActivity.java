@@ -29,7 +29,7 @@ public class MainActivity extends Activity {
 
 		setContentView(R.layout.activity_main);
 		
-		//We only ever need to load the data if the program resarts and we lose the cache.
+		//We only ever need to load the data if the program restarts and we lose the cache.
 		//Thus we reload when this menu is created as it is always the first activity made.
 		//TO-DO: Ensure if this activity is recreated multiple times we only reload once per
 		//instance of the program.
@@ -86,7 +86,6 @@ public class MainActivity extends Activity {
 
 			@Override
 			public void onNothingSelected(AdapterView<?> arg0) {
-				// TODO Auto-generated method stub
 				
 			}
 
@@ -142,6 +141,11 @@ public class MainActivity extends Activity {
 		return true;
 	}
 	
+	
+/*	Since saving is done at the time of change, saving onResume, onStop, etc is not 
+	really necessary. However it does not hurt to attempt to ensure our data gets 
+	saved no matter what.*/
+	
 	 //save on destroy
 	 @Override
      protected void onDestroy() {
@@ -164,7 +168,13 @@ public class MainActivity extends Activity {
 	     listController.saveState(getBaseContext());
 	 }
 	 
-	 //Update the counter list on resume
+/*	 Update the counter list on resume. 
+  	 We do not need to load data here as we assume the only time 
+  	 we need to reload data is when the program is first starting 
+  	 and the cache is empty. Otherwise the counter data
+	 resides in temporary storage and so we can simply update the adapter.
+	 We load onCreate assuming that this activity is always the first to 
+	 be created when we have a fresh start.*/
 	 @Override
 	 protected void onResume(){
 		 super.onResume();

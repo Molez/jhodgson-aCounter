@@ -4,6 +4,12 @@ import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Collections;
 
+/*This class extends the basic Report Generator and specifies
+how a global report should be initialized. A report is created from
+a list of dates. Thus we compile all the dates from all the counters
+into one big list and sort it. This allows all the reports to be 
+generated globally instead of for a specific counter.*/
+
 public class GlobalReportGenerator extends ReportGenerator {
 
 	public void init() {

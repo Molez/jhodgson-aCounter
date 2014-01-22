@@ -9,6 +9,9 @@ import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.TextView;
 
+/*This class defines a custom list adapter for displaying counter
+model's in a list. We display the name on the left and the count on the right.
+*/
 public class CustomListAdaper extends ArrayAdapter<CounterModel> {
 
 	public CustomListAdaper(Context context, int textViewResourceId) {
@@ -37,7 +40,8 @@ public class CustomListAdaper extends ArrayAdapter<CounterModel> {
 
 		TextView name = (TextView) rowView.findViewById(R.id.list_name);
 		TextView count = (TextView) rowView.findViewById(R.id.list_count);
-
+		
+		//Populate the fields
 		name.setText(items.get(position).toString());
 		count.setText(items.get(position).getCountString());
 		return rowView;

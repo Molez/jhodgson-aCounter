@@ -2,6 +2,10 @@ package com.example.jhodgson_acounter;
 
 import java.util.ArrayList;
 
+/*This class implements the customeListModel to provide storage
+for stats models. Manipulation of this list is done through its
+controller.*/
+
 public class StatsListModel implements CustomListModel<StatsModel> {
 
 	private ArrayList<StatsModel> list;

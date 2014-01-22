@@ -10,7 +10,10 @@ import android.view.LayoutInflater;
 import android.view.View;
 
 /*Creates a new custom pop-up alert dialog. The action of this 
- dialog is defined by the doDo() function.*/
+ dialog is defined by the doDo() function. The dialog gets the 
+ button names an the layout from a bundle passed with the calling
+ of this class. All fragments use the same build code but different
+ actions.*/
 
 public abstract class CustomDialogFragment extends DialogFragment {
 
@@ -43,5 +46,6 @@ public abstract class CustomDialogFragment extends DialogFragment {
 		return builder.create();
 	}
 
+	//Must define what this fragment does on "accept" through this method.
 	abstract void doThis(View view, View parentView, Context context);
 }

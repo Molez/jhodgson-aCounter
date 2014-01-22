@@ -10,6 +10,8 @@ import android.widget.Button;
 import android.widget.ListView;
 import android.widget.TextView;
 
+
+/*This class defines the stats page*/
 public class StatsActivity extends Activity {
 
 	private ReportGenerator report;
@@ -21,6 +23,11 @@ public class StatsActivity extends Activity {
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_stats);
+		
+		/*We need to know which stats page we are on, be it global or
+		local counter. We do this by supplying an extra message when
+		we come to this activity that tells us what to display
+		at the top and what kind of report to initialize.*/
 
 		Intent intent = getIntent();
 		TextView textView = (TextView) findViewById(R.id.stats_name);
@@ -29,10 +36,12 @@ public class StatsActivity extends Activity {
 		textView.setText(statsName);
 
 		if (statsName.equals(MainActivity.GLOBAL)) {
+			//initialize a global report
 			report = new GlobalReportGenerator();
 			report.init();
 			listController = report.generateEmptyReport();
 		} else {
+			//initialize a local counter report
 			report = new CounterReportGenerator();
 			report.init();
 			listController = report.generateEmptyReport();
@@ -48,6 +57,7 @@ public class StatsActivity extends Activity {
 			public void onClick(View arg0) {
 				resetLastButton();
 				lastButton = hourButton;
+				//Change the button to yello to signify which report we are vieing
 				hourButton.setTextColor(getResources().getColor(R.color.yellow));
 				listController = report.generateHourlyReport();
 				adapter.notifyDataSetChanged();
@@ -66,6 +76,7 @@ public class StatsActivity extends Activity {
 				
 				resetLastButton();
 				lastButton = dayButton;
+				//Change the button to yello to signify which report we are vieing
 				dayButton.setTextColor(getResources().getColor(R.color.yellow));
 				listController = report.generateDailyReport();
 				adapter.notifyDataSetChanged();
@@ -83,6 +94,7 @@ public class StatsActivity extends Activity {
 			public void onClick(View arg0) {
 				resetLastButton();
 				lastButton = weekButton;
+				//Change the button to yello to signify which report we are vieing
 				weekButton.setTextColor(getResources().getColor(R.color.yellow));
 				listController = report.generateWeeklyReport();
 				adapter.notifyDataSetChanged();
@@ -102,6 +114,7 @@ public class StatsActivity extends Activity {
 				//Reset the color of the last button back to white
 				resetLastButton();
 				lastButton = monthButton;
+				//Change the button to yello to signify which report we are vieing
 				monthButton.setTextColor(getResources().getColor(R.color.yellow));
 				listController = report.generateMonthlyReport();
 				adapter.notifyDataSetChanged();

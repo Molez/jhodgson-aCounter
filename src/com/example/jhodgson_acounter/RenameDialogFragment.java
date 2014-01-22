@@ -5,6 +5,10 @@ import android.view.View;
 import android.widget.EditText;
 import android.widget.TextView;
 
+/*This class extends the basic custom dialog fragment and defines what actions
+a rename fragment should take. This fragment is used to prompt the user for
+a string which signifies the new name the current counter should take.*/
+
 public class RenameDialogFragment extends CustomDialogFragment {
 
 	void doThis(View view, View parentView, Context context) {

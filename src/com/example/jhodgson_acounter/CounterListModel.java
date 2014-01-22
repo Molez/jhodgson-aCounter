@@ -16,7 +16,7 @@ public class CounterListModel implements CustomListModel<CounterModel> {
 
 	private ArrayList<CounterModel> list;
 	
-	//Contructs a new empty list
+	//Constructs a new empty list
 	public CounterListModel() {
 		super();
 		list = new ArrayList<CounterModel>();
