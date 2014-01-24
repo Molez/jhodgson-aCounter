@@ -1,0 +1,49 @@
+This file gives a quick overview of how to use the progam. 
+
+Main Screen
+===========
+
+-To create a new counter type a name into the top text box and hit "new"
+
+-The list of counters is sorted from largest count to smallest by default. 
+One can revers the sort by selecting the drop down menu under the new
+counter creation and selecting a new sort option.
+
+-To select an existing counter in order to edit it, increment it, reset it
+or check stats on it select it from the list of counters.
+
+- To view aggregated stats about all active conters select global stats from the bottom.
+
+
+Counter Screen
+==============
+
+-Counter name and current count is displayed at the top
+
+-Increment the counter by selecting the "+" button in the middle
+
+-To delete the counter select "Delete" and verify your intent to delete
+
+-To rename select "rename" and put a new name for the counter into the popup
+
+-To reset the counter select "reset" and verify your intent to reset the count
+
+-To view stats about only this counter select "Counter stats"
+
+-To go back to the prvious screen slect "back" or use the phones hardware
+back button
+
+
+Stats Screen
+============
+
+-To display a list of hourly stats select "Hour"
+
+-To display a list of daily stats select "Day"
+
+-To display a list of weekly stats select "Week"
+
+-To display a list of monthly stats select "Month"
+
+-To go back to the prvious screen slect "back" or use the phones hardware
+back button
